@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Observer Tutorial</title>
+    <style media= "screen">
+        .square{
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            display: inline-block;
+            margin-right: 10px;
+            background-color: black;
+            color: white;
+            font-size: 150%;
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="square" id="elementObserver1">
+
+
+    </div>
+    <hr>
+    <button type="button" onclick ="model.increment()">Increment</button>
+    <script src= "js/NumberModel.js" charset="UTF-8"></script>
+    <script src= "js/ElementObserver.js" charset="UTF-8"></script>
+    <script src= "js/ConsoleObserver.js" charset="UTF-8"></script>
+    <script src= "js/HistoryObserver.js" charset="UTF-8"></script>
+
+
+
+    <script type="text/javascript">
+        const model = new NumberModel();
+        const eObs1 = new ElementObserver('elementObserver1');
+        const consoleObserver = new ConsoleObserver();
+        const historyObserver = new HistoryObserver();
+
+        model.addObservers(historyObserver);
+        model.addObservers(consoleObserver);
+        model.addObservers(eObs1);
+        
+
+
+    </script>
+</body>
+</html>
